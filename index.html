@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>* {
+	box-sizing:border-box;
+}
+body {
+	margin:0;
+}
+:root {
+	--gjs-t-color-primary:#cf549e;
+	--gjs-t-color-secondary:#b9227d;
+	--gjs-t-color-accent:#ffb347;
+	--gjs-t-color-success:#28a745;
+	--gjs-t-color-warning:#ffc107;
+	--gjs-t-color-error:#dc3545;
+	--bg:#ffffff;
+	--primary:#006d77;
+	undefined:undefined;
+	--secondary:#83c5be;
+	--accent:#ffdd57;
+	--text:#333;
+	--primary-teal:#2d5a5a;
+	--light-teal:#4a8080;
+	--accent-orange:#ff9f45;
+	--gradient-bg:linear-gradient(135deg,#2d5a5a 0%,#1a4040 100%);
+	--card-bg:rgba(255,255,255,0.98);
+	--section-bg:linear-gradient(135deg,rgba(74,128,128,0.1),rgba(45,90,90,0.05));
+}
+body {
+	background-color:#e7e7e7;
+	font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+	color:#333;
+	background:var(--gradient-bg);
+	line-height:1.6;
+	min-height:100vh;
+	padding:20px;
+	margin:0;
+}
+.logo {
+	height:80px;
+	display:block;
+	margin:0 auto;
+	margin-bottom:20px;
+}
+.gjs-t-body {
+	background-color:inherit;
+	color:inherit;
+	font-size:1rem;
+	line-height:1.75rem;
+	font-family:Arial,Helvetica,sans-serif;
+}
+.subtitle {
+	text-align:center;
+	margin:0;
+	padding:25px 0;
+	color:var(--light-teal);
+	font-size:1.3rem;
+	font-weight:600;
+	margin-bottom:10px;
+}
+.footer {
+	margin-top:50px;
+	text-align:center;
+	padding-top:30px;
+	border-top:2px solid rgba(74,128,128,0.2);
+	color:#666;
+}
+.gjs-t-h1 {
+	color:var(--gjs-t-color-secondary);
+	font-size:1.5rem;
+	line-height:2.5rem;
+}
+.gjs-t-h2 {
+	color:#601843;
+	font-size:1.2rem;
+	line-height:1.75rem;
+}
+.gjs-t-button {
+	background-color:var(--gjs-t-color-primary);
+	color:white;
+	border-radius:0.3rem;
+}
+.gjs-t-link {
+	color:var(--gjs-t-color-primary);
+	text-decoration:underline;
+}
+.gjs-t-border {
+	border-radius:0.3rem;
+	border-color:#e0e0e0;
+}
+* {
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+}
+header {
+	background:var(--bg);
+	padding:2.5rem 1rem 2rem;
+	text-align:center;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+header h1 {
+	font-size:2.5rem;
+	margin-bottom:.5rem;
+	color:var(--primary);
+}
+header p {
+	font-size:1.1rem;
+	color:var(--secondary);
+}
+nav {
+	display:flex;
+	justify-content:center;
+	gap:2rem;
+	padding:1rem 0;
+	background:var(--secondary);
+	position:sticky;
+	top:0;
+	z-index:10;
+}
+nav a {
+	text-decoration:none;
+	color:var(--primary);
+	font-weight:600;
+}
+nav a:hover {
+	opacity:.7;
+}
+section {
+	padding:3rem 1rem;
+	max-width:900px;
+	margin:0 auto;
+}
+section h2 {
+	font-size:1.8rem;
+	margin-bottom:1rem;
+	color:var(--primary);
+}
+.about p {
+	margin-bottom:1rem;
+}
+.course .module {
+	margin-bottom:.75rem;
+}
+.submissions ul {
+	list-style:none;
+	border-left:3px solid var(--primary);
+	padding-left:1.25rem;
+}
+.submissions li {
+	margin-bottom:1rem;
+	position:relative;
+}
+.submissions li::before {
+	content:'';
+	position:absolute;
+	left:-10px;
+	top:4px;
+	width:10px;
+	height:10px;
+	background:var(--primary);
+	border-radius:50%;
+}
+.submissions a {
+	color:var(--primary);
+	text-decoration:none;
+}
+.submissions a:hover {
+	text-decoration:underline;
+}
+footer {
+	background:var(--secondary);
+	text-align:center;
+	padding:1.5rem;
+	font-size:.9rem;
+	color:var(--primary);
+}
+.contact a {
+	color:var(--primary);
+	text-decoration:none;
+	margin:0 .5rem;
+	font-weight:600;
+	background-color:var(--accent);
+	padding:0.5rem 1rem;
+	border-radius:5px;
+}
+.contact a:hover {
+	opacity:.8;
+}
+.container {
+	max-width:1400px;
+	margin:0 auto;
+	background:var(--card-bg);
+	backdrop-filter:blur(10px);
+	border-radius:20px;
+	padding:40px;
+	box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+.header {
+	text-align:center;
+	margin-bottom:50px;
+}
+.main-title {
+	color:var(--primary-teal);
+	font-size:3rem;
+	font-weight:800;
+	margin-bottom:15px;
+	background:linear-gradient(135deg,var(--primary-teal),var(--light-teal));
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	background-clip:text;
+}
+.attribution {
+	color:#666;
+	font-size:1rem;
+	margin-bottom:5px;
+}
+.last-updated {
+	color:#888;
+	font-size:0.9rem;
+}
+.week-section {
+	background:white;
+	border-radius:15px;
+	padding:30px;
+	margin-bottom:30px;
+	box-shadow:0 8px 25px rgba(0,0,0,0.08);
+	border-left:5px solid var(--accent-orange);
+}
+.week-title {
+	color:var(--primary-teal);
+	font-size:1.8rem;
+	font-weight:700;
+	margin-bottom:15px;
+	display:flex;
+	align-items:center;
+	gap:15px;
+}
+.week-number {
+	background:var(--accent-orange);
+	color:white;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-weight:800;
+	font-size:1.1rem;
+}
+.week-description {
+	background:rgba(255,159,69,0.1);
+	padding:20px;
+	border-radius:10px;
+	margin-bottom:25px;
+	border-left:4px solid var(--accent-orange);
+}
+.video-grid {
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+	gap:25px;
+	margin-bottom:20px;
+}
+.video-card {
+	background:#f8f9fa;
+	border-radius:12px;
+	padding:20px;
+	border:1px solid #e9ecef;
+	transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.video-card:hover {
+	transform:translateY(-3px);
+	box-shadow:0 12px 25px rgba(0,0,0,0.1);
+}
+.video-card h4 {
+	color:var(--primary-teal);
+	font-size:1.1rem;
+	font-weight:600;
+	margin-bottom:10px;
+}
+.video-card p {
+	color:#666;
+	font-size:0.9rem;
+	margin-bottom:15px;
+}
+.video-embed {
+	width:100%;
+	height:200px;
+	border-radius:8px;
+	border:none;
+}
+.main-demo {
+	background:linear-gradient(135deg,rgba(45,90,90,0.1),rgba(74,128,128,0.05));
+	border:2px solid var(--light-teal);
+	border-radius:12px;
+	padding:25px;
+	margin-bottom:25px;
+}
+.main-demo h4 {
+	color:var(--primary-teal);
+	font-size:1.3rem;
+	font-weight:700;
+	margin-bottom:15px;
+	display:flex;
+	align-items:center;
+	gap:10px;
+}
+.demo-badge {
+	background:var(--primary-teal);
+	color:white;
+	padding:4px 12px;
+	border-radius:20px;
+	font-size:0.8rem;
+	font-weight:600;
+}
+.other-demos h4 {
+	color:#666;
+	font-size:1.1rem;
+	margin-bottom:15px;
+	font-weight:600;
+}
+.software-highlight {
+	background:rgba(255,159,69,0.2);
+	padding:3px 8px;
+	border-radius:4px;
+	color:#cc7a00;
+	font-weight:600;
+}
+.external-badge {
+	background:#6c757d;
+	color:white;
+	padding:2px 8px;
+	border-radius:12px;
+	font-size:0.7rem;
+	font-weight:600;
+	margin-left:8px;
+}
+.gjs-t-body {
+	background-color:inherit;
+	color:inherit;
+	font-size:1rem;
+	line-height:1.75rem;
+	font-family:Arial,Helvetica,sans-serif;
+}
+#iinw8 {
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	padding-top:13px;
+	padding-right:13px;
+	padding-bottom:13px;
+	padding-left:13px;
+}
+@media (max-width:992px) {
+	#iinw8 {
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	margin-top:4px;
+	margin-right:4px;
+	margin-bottom:4px;
+	margin-left:4px;
+	line-height:44px;
+}
+}@media (max-width:768px) {
+	.container {
+	padding:20px;
+}
+.main-title {
+	font-size:2.2rem;
+}
+.video-grid {
+	grid-template-columns:1fr;
+}
+.video-embed {
+	height:180px;
+}
+}@media (max-width:768px) {
+	.container {
+	padding:20px;
+}
+.main-title {
+	font-size:2.2rem;
+}
+.video-grid {
+	grid-template-columns:1fr;
+}
+.video-embed {
+	height:180px;
+}
+} </style>
+  <title>Generative AI for Work &amp; Research - Course Guide</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index,follow" />
+  <meta name="generator" content="GrapesJS Studio" />
+</head>
+
+<body class="gjs-t-body">
+  <div class="container">
+    <!-- ——— HEADER ——— -->
+    <div class="header"><img src="https://raw.githubusercontent.com/the-graph-courses/aiw_materials/refs/heads/main/assets/graph_courses_logo.png" alt="The Graph Courses Logo" class="logo"/>
+      <h1 id="iinw8" class="main-title">🤖 Generative AI for Work &amp; Research</h1>
+      <p class="subtitle">Course Materials &amp; Video Demonstrations</p>
+      <p class="attribution" id="ikd1s">thegraphcourses.org</p>
+      <p class="last-updated">Course Materials &amp; Demonstrations</p>
+    </div><!-- ——— INTRO SECTION ——— -->
+    <!-- (unchanged) -->
+    <!-- ——— WEEK 1 ——— -->
+    <div id="imgsl" class="week-section">
+      <h3 class="week-title"><span class="week-number">1</span>Websites, Documents and Presentations</h3>
+      <div class="week-description">
+        <p><strong>Week Focus:</strong> Create professional content with AI-powered tools. Learn to build websites,
+          generate documents, and design presentations using AI assistance.</p>
+      </div><!-- MAIN DEMO -->
+      <div class="main-demo">
+        <h4 id="i2s8w"><span class="demo-badge">MAIN DEMO</span>Simple Websites with ChatGPT Canvas and Github Pages
+        </h4>
+        <p>It's surprisingly simple and free to create websites with AI and deploy them on <a
+            href="https://pages.github.com/" target="_blank" rel="noopener" class="software-highlight">GitHub Pages</a>.
+          No coding experience required.</p><iframe allowfullscreen="" src="https://player.vimeo.com/video/1082918016?"
+          class="video-embed"></iframe>
+      </div><!-- OTHER DEMOS -->
+      <div class="other-demos">
+        <h4>Additional Tools &amp; Techniques</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <h4 id="i8kkl">Using GrapesJS to Edit AI Websites</h4>
+            <p id="ik3wh">Don't want to go back to the AI for every small change? <a href="https://grapesjs.com/"
+                target="_blank" rel="noopener" class="software-highlight">GrapesJS</a> lets you edit websites visually
+              without touching code.</p><iframe allowfullscreen="" src="https://player.vimeo.com/video/1092170358?"
+              class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4 id="ipn75">LaTeX, AI and Overleaf for PDF Documents <span class="external-badge">EXTERNAL</span></h4>
+            <p id="il5kp">LaTeX creates beautiful academic papers, CVs, posters and reports, but it's hard to learn. AI
+              can write LaTeX for you, and <a href="https://www.overleaf.com/" target="_blank" rel="noopener"
+                class="software-highlight">Overleaf</a> makes it easy to use online.</p><iframe allowfullscreen=""
+              src="https://www.youtube.com/embed/5YFL5F-oAis?" class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4 id="ixhhn">Gamma for AI Presentations <span class="external-badge">EXTERNAL</span></h4>
+            <p>Everyone keeps asking "where is ChatGPT for PowerPoint?" <a href="https://gamma.app/" target="_blank"
+                rel="noopener" class="software-highlight">Gamma</a> is the best "ChatGPT for PowerPoint" available right
+              now.</p><iframe allowfullscreen="" src="https://www.youtube.com/embed/KcbXKUR7-a0?"
+              class="video-embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div><!-- ——— WEEK 2 ——— -->
+    <div class="week-section">
+      <h3 class="week-title"><span class="week-number">2</span>Automated Data Analysis</h3>
+      <div class="week-description">
+        <p><strong>Week Focus:</strong> Automate data analysis tasks using AI-powered coding assistants. Learn to
+          process data, create visualizations, and generate insights without manual coding.</p>
+      </div>
+      <div class="main-demo">
+        <h4 id="ihi1l"><span class="demo-badge" id="i2qpy">MAIN DEMO</span> Cursor Coding Agent for R</h4>
+        <p id="it3h62">With the right prompts, you can automate data analysis tasks using an AI-powered IDE <a
+            href="https://www.cursor.so/" target="_blank" rel="noopener" class="software-highlight">Cursor</a>. The AI
+          writes code, runs it on your data, observes output and errors, then updates based on mistakes.</p><iframe
+          allowfullscreen="" src="https://player.vimeo.com/video/1084743903?" class="video-embed"></iframe>
+      </div>
+      <div class="other-demos">
+        <h4>Alternative Tools &amp; Approaches</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <h4 id="i86kvj">ChatGPT Code Interpreter for Simple Data
+              Analysis <span class="external-badge">EXTERNAL</span></h4>
+            <p id="i3pdik"><a href="https://chat.openai.com/" target="_blank" rel="noopener" id="ivvv0h"
+                class="software-highlight">ChatGPT</a> can run code to generate simple data analyses. Great for quick
+              data exploration and simple visualizations, though it can only run Python and code isn't editable
+              currently.</p><iframe allowfullscreen="" src="https://www.youtube.com/embed/0zU80cHUPcg?"
+              class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4 id="i8ppzl">WindSurf Coding Agent <span class="external-badge">EXTERNAL</span></h4>
+            <p id="iufe0g"><a href="https://www.windsurf.ai/" target="_blank" rel="noopener"
+                class="software-highlight">Windsurf</a> is an alternative to Cursor with a decent free plan. Currently
+              not as strong as Cursor based on recent testing, but worth exploring if you're not ready to pay for
+              Cursor.</p><iframe allowfullscreen="" src="https://www.youtube.com/embed/8TcWGk1DJVs?"
+              class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4 id="ir2bbp">Bricks AI for Spreadsheet &amp; Dashboard
+              Automation <span class="external-badge">EXTERNAL</span></h4>
+            <p id="iasvqr"><a href="https://thebricks.ai/" target="_blank" rel="noopener"
+                class="software-highlight">TheBricks.ai</a> is a tool where you can use natural-language prompts ("make
+              a new column with the sum of sales and donations minus the VAT column") to manipulate spreadsheets and
+              build simple dashboards without writing formulas.</p><iframe allowfullscreen=""
+              src="https://www.youtube.com/embed/1vz6EkUhbOg?" class="video-embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div><!-- ——— WEEK 3 ——— -->
+    <div class="week-section">
+      <h3 class="week-title"><span class="week-number">3</span>GenAI for Text Processing &amp; Research</h3>
+      <div class="week-description">
+        <p><strong>Week Focus:</strong> Use AI for text processing and research tasks. Learn to classify text, analyze
+          sentiment, summarize documents, and conduct research using AI tools.</p>
+      </div>
+      <div class="main-demo">
+        <h4><span class="demo-badge">MAIN DEMO</span> Text Classification, Sentiment Analysis and Summarization</h4>
+        <p id="ij1mn5">Using LLMs in a loop lets you automate lots of text-processing tasks, and spreadsheets are a
+          great way to do this. Learn to integrate <a id="iyocpq" href="https://openrouter.ai/" target="_blank"
+            rel="noopener" class="software-highlight">OpenRouter</a> with <a href="https://www.google.com/sheets/about/"
+            target="_blank" rel="noopener" class="software-highlight">Google Sheets</a> for scalable text analysis.</p>
+        <iframe allowfullscreen="" src="https://player.vimeo.com/video/1086807545?" class="video-embed"></iframe>
+      </div>
+      <div class="other-demos">
+        <h4>Research &amp; Literature Review Tools</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <h4>OpenAI Deep Research <span class="external-badge">EXTERNAL</span></h4>
+            <p id="i1qevk">Let AI do the googling for you. <a id="ivvv0h-2" draggable="true"
+                href="https://chat.openai.com/" target="_blank" rel="noopener" class="software-highlight">ChatGPT's</a>
+              deep-research mode and tools like it will search the web repeatedly and compile comprehensive reports on
+              any topic you're investigating.</p><iframe allowfullscreen=""
+              src="https://www.youtube.com/embed/jPR1NEerdEk?" class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4 id="ikpa3h">Simple Literature Reviews with Elicit<span class="external-badge">EXTERNAL</span></h4>
+            <p id="ie0xgs"><a href="https://elicit.com/" target="_blank" rel="noopener"
+                class="software-highlight">Elicit</a> lets you search academic literature and get AI-powered summaries
+              of research papers, making literature reviews much faster and more comprehensive.</p><iframe
+              allowfullscreen="" src="https://www.youtube.com/embed/rJJPS-EvNfk?" class="video-embed"></iframe>
+          </div><!-- NEW: LITEREV -->
+          <div class="video-card">
+            <h4><a href="https://literev.unige.ch/" target="_blank" rel="noopener"
+                class="software-highlight">Literev</a> Literature Review Tool
+              <span class="external-badge">EXTERNAL</span></h4>
+            <p id="iuvoip">A home-grown platform built at The Graph Network for academic literature reviews. <a
+                href="https://literev.unige.ch/" target="_blank" rel="noopener" class="software-highlight">Literev</a>
+              is still early-stage yet already offers powerful clustering, filtering and summarisation features—and we
+              can tailor it to your specific research workflows.</p><iframe allowfullscreen=""
+              src="https://player.vimeo.com/video/1092288517?" class="video-embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div><!-- ——— WEEK 4 ——— -->
+    <div class="week-section">
+      <h3 class="week-title"><span class="week-number">4</span>Custom GPTs and Chatbots</h3>
+      <div class="week-description">
+        <p><strong>Week Focus:</strong> Build custom AI assistants and chatbots. Learn to create specialized AI tools
+          for your organization and deploy interactive chatbots for various use cases.</p>
+      </div>
+      <div class="main-demo">
+        <h4 id="iygtn7"><span class="demo-badge">MAIN DEMO</span> Creating and Embedding Interactive Chatbots with
+          Botpress</h4>
+        <p><a href="https://botpress.com/" target="_blank" rel="noopener" class="software-highlight">Botpress</a> is one
+          of the most mature yet easiest-to-use platforms for building bots with modern LLMs. In this tutorial, you'll
+          build a simple bot and embed it on your website.</p><iframe allowfullscreen=""
+          src="https://player.vimeo.com/video/1092191232?" class="video-embed"></iframe>
+      </div>
+      <div class="other-demos">
+        <h4>Custom AI Assistant Solutions</h4>
+        <div class="video-grid">
+          <div class="video-card">
+            <h4 id="iwzj1d">Custom GPTs<span class="external-badge">EXTERNAL</span></h4>
+            <p id="iaebyo">Custom GPTs in <a href="https://chat.openai.com/" target="_blank" rel="noopener"
+                class="software-highlight">ChatGPT</a> let you build internal AI assistants with custom knowledge bases
+              and instructions. Great for team-specific tasks and workflows.</p><iframe allowfullscreen=""
+              src="https://www.youtube.com/embed/0Q1AQAxpdGg?" class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4 id="iu5tf5"><a href="https://notebooklm.google/" target="_blank" rel="noopener" id="igpwzd"
+                class="software-highlight">NotebookLM</a> <span class="external-badge">EXTERNAL</span></h4>
+            <p id="ililyl">You can upload documents to <a href="https://notebooklm.google/" target="_blank"
+                rel="noopener" class="software-highlight">Google’s NotebookLM</a> and query them like a database. It can
+              even turn documents into podcast-style audio.</p><iframe allowfullscreen=""
+              src="https://www.youtube.com/embed/-Nl6hz2nYFA?" class="video-embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div><!-- ——— WEEK 5 ——— -->
+    <div class="week-section">
+      <h3 class="week-title"><span class="week-number">5</span>AI for Task Automation</h3>
+      <div class="week-description">
+        <p id="i5dl2g"><strong>Week Focus:</strong> Traditional automation gets much more powerful with AI in the mix.
+          Learn to build intelligent automation systems that can make decisions and handle complex tasks.</p>
+      </div>
+      <div class="main-demo">
+        <h4 id="irsd6p"><span class="demo-badge">MAIN DEMO</span> Intro to Workflow Automation with Make.Com</h4>
+        <p id="i5549i"><a href="https://www.make.com/" target="_blank" rel="noopener"
+            class="software-highlight">Make.com</a> is a popular workflow-automation platform with affordable pricing
+          and a decent free plan. Takes some getting used to, but it's a valuable skill.</p><iframe allowfullscreen=""
+          src="https://player.vimeo.com/video/1092196500?" class="video-embed"></iframe>
+      </div>
+      <div class="other-demos">
+        <h4 id="i7om9n">Other Automation Use Cases</h4>
+        <div id="ip9rug" class="video-grid">
+          <div class="video-card">
+            <h4 id="it6hbk">Real-World Make.com Automations <span class="external-badge">EXTERNAL</span></h4>
+            <p>Explore real-world example use cases and see how different organizations use <a
+                href="https://www.make.com/" target="_blank" rel="noopener" class="software-highlight">Make.com</a> for
+              their automation needs.</p><iframe allowfullscreen="" src="https://www.youtube.com/embed/GgBAMFvnkQI?"
+              class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4>Make AI Agents <span class="external-badge">EXTERNAL</span></h4>
+            <p id="iqbl5s"><a href="https://www.make.com/" target="_blank" rel="noopener"
+                class="software-highlight">Make.com</a> now has a new interface for building AI agents that choose their
+              own tools based on what they need to accomplish, rather than following a fixed sequence. AI agents are
+              still a bit hard to control, but worth getting familiar with.</p><iframe allowfullscreen=""
+              src="https://www.youtube.com/embed/bPtFxASiunA?" class="video-embed"></iframe>
+          </div>
+          <div class="video-card">
+            <h4>Convergence AI Demo: Browser-Control Agents <span class="external-badge">EXTERNAL</span></h4>
+            <p id="ivyedv">Since modern VLLMs have decent vision capabilities, instead of relying on APIs they can
+              actually use many websites like a human. Many companies are productionising this, but <a
+                href="https://www.convergence.ai/" target="_blank" rel="noopener"
+                class="software-highlight">Convergence</a> has one of the best interfaces and affordable pricing.</p>
+            <iframe allowfullscreen="" id="i47tdb" src="https://www.youtube.com/embed/c7dzkatbeWg?"
+              class="video-embed"></iframe>
+          </div><!-- NEW: SHORTWAVE -->
+          <div class="video-card">
+            <h4>Shortwave: AI Inbox Assistant <span class="external-badge">EXTERNAL</span></h4>
+            <p><a href="https://www.shortwave.com/" target="_blank" rel="noopener"
+                class="software-highlight">Shortwave</a> brings an AI copilot straight to Gmail and Outlook. Search your
+              inbox intelligently, draft replies, summarise threads, schedule meetings and more.</p><iframe
+              allowfullscreen="" src="https://www.youtube.com/embed/YJtmFpth_nE?" class="video-embed"></iframe>
+          </div><!-- NEW: SERIF -->
+          <div class="video-card">
+            <h4 id="iurw2w">Serif.ai: AI Email Drafts <span class="external-badge">EXTERNAL</span></h4>
+            <p id="i7jsls"><a href="https://www.serif.ai/" target="_blank" rel="noopener"
+                class="software-highlight">Serif.ai</a> listens to short voice notes while you sleep and wakes you up to
+              an organised inbox: replies drafted, follow-ups sent, meetings scheduled—and everything ready for review.
+            </p><iframe allowfullscreen="" src="https://www.youtube.com/embed/3G2lAyjkasw?"
+              class="video-embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div><!-- ——— FOOTER ——— -->
+    <div class="footer">
+      <p><strong>thegraphcourses.org</strong> • Generative AI for Work &amp; Research</p>
+      <p>Data and AI skills for health and life sciences</p>
+    </div>
+  </div>
+</body>
+
+</html>
