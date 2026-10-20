@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="index,follow" />
+	<title>Generative AI for Work &amp; Research - Course Guide</title>
 	<style>
 		* {
 			box-sizing: border-box;
@@ -24,7 +28,6 @@
 			line-height: 1.6;
 			min-height: 100vh;
 			padding: 16px;
-			margin: 0;
 		}
 
 		.logo {
@@ -59,7 +62,6 @@
 		}
 
 		.subtitle {
-			text-align: center;
 			color: var(--light-teal);
 			font-size: 1.15rem;
 			font-weight: 600;
@@ -125,7 +127,7 @@
 			color: var(--primary-teal);
 			font-size: 1.05rem;
 			font-weight: 700;
-			margin-bottom: 8px;
+			margin-bottom: 10px;
 			display: flex;
 			align-items: center;
 			gap: 8px;
@@ -157,8 +159,50 @@
 			white-space: nowrap;
 		}
 
-		.main-demo .video-thumb {
-			height: 140px;
+		/* Responsive 16:9 video embed */
+		.embed {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			border-radius: 8px;
+			overflow: hidden;
+			background: #1a4040;
+			margin-bottom: 12px;
+		}
+
+		.embed iframe {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
+		/* Three-up embed grid for the Week 5 main demo */
+		.embed-trio {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 12px;
+			margin-bottom: 12px;
+		}
+
+		.embed-trio .embed {
+			margin-bottom: 6px;
+		}
+
+		.embed-trio .trio-label {
+			font-size: 0.85rem;
+			font-weight: 600;
+			color: var(--primary-teal);
+		}
+
+		.embed-trio .trio-label a {
+			color: var(--primary-teal);
+			text-decoration: none;
+		}
+
+		.embed-trio .trio-label a:hover {
+			text-decoration: underline;
 		}
 
 		.other-demos h4.section-label {
@@ -208,10 +252,16 @@
 			line-height: 1.45;
 		}
 
+		.video-card .embed {
+			margin-bottom: 10px;
+			border-radius: 6px;
+		}
+
 		.video-thumb {
 			display: block;
 			width: 100%;
-			height: 100px;
+			aspect-ratio: 16 / 9;
+			height: auto;
 			object-fit: cover;
 			border-radius: 6px;
 			margin-bottom: 10px;
@@ -220,9 +270,8 @@
 			transition: filter 0.3s ease, opacity 0.3s ease;
 		}
 
-		.video-card:hover .video-thumb,
-		.main-demo:hover .video-thumb {
-			filter: saturate(1) brightness(1);
+		.video-card:hover .video-thumb {
+			filter: saturate(1);
 			opacity: 1;
 		}
 
@@ -254,6 +303,12 @@
 			font-size: 0.9rem;
 		}
 
+		@media (max-width: 700px) {
+			.embed-trio {
+				grid-template-columns: 1fr;
+			}
+		}
+
 		@media (max-width: 600px) {
 			body {
 				padding: 10px;
@@ -279,20 +334,8 @@
 			.video-grid {
 				grid-template-columns: 1fr;
 			}
-
-			.video-thumb {
-				height: 80px;
-			}
-
-			.main-demo .video-thumb {
-				height: 110px;
-			}
 		}
 	</style>
-	<title>Generative AI for Work &amp; Research - Course Guide</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="robots" content="index,follow" />
 </head>
 
 <body>
@@ -305,26 +348,25 @@
 			<p class="attribution">thegraphcourses.org</p>
 		</div>
 
-		<!-- ——— WEEK 1 ——— -->
+		<!-- WEEK 1 -->
 		<div class="week-section">
 			<h3 class="week-title"><span class="week-number">1</span>Websites, Documents &amp; Presentations</h3>
 			<div class="week-description">
 				<p><strong>Week Focus:</strong> Create professional content with AI-powered tools. Learn to build
-					websites,
-					generate documents, and design presentations using AI assistance.</p>
+					websites, generate documents, and design presentations using AI assistance.</p>
 			</div>
 			<div class="main-demo">
 				<h4><span class="demo-badge">MAIN DEMO</span>
 					<a href="https://vimeo.com/1082918016" target="_blank" rel="noopener">Simple Websites with ChatGPT
-						Canvas &amp;
-						GitHub Pages</a>
+						Canvas &amp; GitHub Pages</a>
 				</h4>
-				<a href="https://vimeo.com/1082918016" target="_blank" rel="noopener"><img
-						src="https://vumbnail.com/1082918016.jpg" alt="Video thumbnail" class="video-thumb" /></a>
+				<div class="embed">
+					<iframe src="https://player.vimeo.com/video/1082918016?dnt=1" title="Simple Websites with ChatGPT Canvas &amp; GitHub Pages"
+						allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+				</div>
 				<p>It's surprisingly simple and free to create websites with AI and deploy them on
 					<a href="https://pages.github.com/" target="_blank" rel="noopener" class="software-highlight">GitHub
-						Pages</a>.
-					No coding experience required.
+						Pages</a>. No coding experience required.
 				</p>
 			</div>
 			<div class="other-demos">
@@ -333,50 +375,47 @@
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=5YFL5F-oAis" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/5YFL5F-oAis/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=5YFL5F-oAis" target="_blank" rel="noopener">LaTeX,
-								AI &amp;
-								Overleaf for PDF Documents</a> <span class="external-badge">EXTERNAL</span></h4>
+								AI &amp; Overleaf for PDF Documents</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>LaTeX creates beautiful academic papers, CVs, posters and reports, but it's hard to learn. AI
-							can write
-							LaTeX for you, and <a href="https://www.overleaf.com/" target="_blank" rel="noopener"
+							can write LaTeX for you, and <a href="https://www.overleaf.com/" target="_blank" rel="noopener"
 								class="software-highlight">Overleaf</a> makes it easy to use online.</p>
 					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=KcbXKUR7-a0" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/KcbXKUR7-a0/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=KcbXKUR7-a0" target="_blank" rel="noopener">Gamma
-								for AI
-								Presentations</a> <span class="external-badge">EXTERNAL</span></h4>
+								for AI Presentations</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>Everyone keeps asking "where is ChatGPT for PowerPoint?"
 							<a href="https://gamma.app/" target="_blank" rel="noopener"
-								class="software-highlight">Gamma</a> is the
-							best "ChatGPT for PowerPoint" available right now.
+								class="software-highlight">Gamma</a> is the best "ChatGPT for PowerPoint" available right now.
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- ——— WEEK 2 ——— -->
+		<!-- WEEK 2 -->
 		<div class="week-section">
 			<h3 class="week-title"><span class="week-number">2</span>Automated Data Analysis</h3>
 			<div class="week-description">
 				<p><strong>Week Focus:</strong> Automate data analysis tasks using AI-powered coding assistants. Learn
-					to process
-					data, create visualizations, and generate insights without manual coding.</p>
+					to process data, create visualizations, and generate insights without manual coding.</p>
 			</div>
 			<div class="main-demo">
 				<h4><span class="demo-badge">MAIN DEMO</span>
 					<a href="https://vimeo.com/1084743903" target="_blank" rel="noopener">Cursor Coding Agent for R</a>
 				</h4>
-				<a href="https://vimeo.com/1084743903" target="_blank" rel="noopener"><img
-						src="https://vumbnail.com/1084743903.jpg" alt="Video thumbnail" class="video-thumb" /></a>
+				<div class="embed">
+					<iframe src="https://player.vimeo.com/video/1084743903?dnt=1" title="Cursor Coding Agent for R"
+						allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+				</div>
 				<p>With the right prompts, you can automate data analysis tasks using an AI-powered IDE
-					<a href="https://www.cursor.so/" target="_blank" rel="noopener"
-						class="software-highlight">Cursor</a>. The AI
-					writes code, runs it on your data, observes output and errors, then updates based on mistakes.
+					<a href="https://www.cursor.com/" target="_blank" rel="noopener"
+						class="software-highlight">Cursor</a>. The AI writes code, runs it on your data, observes output
+					and errors, then updates based on mistakes.
 				</p>
 			</div>
 			<div class="other-demos">
@@ -385,64 +424,47 @@
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=0zU80cHUPcg" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/0zU80cHUPcg/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=0zU80cHUPcg" target="_blank" rel="noopener">ChatGPT
-								Code
-								Interpreter for Simple Data Analysis</a> <span class="external-badge">EXTERNAL</span>
+								Code Interpreter for Simple Data Analysis</a> <span class="external-badge">EXTERNAL</span>
 						</h4>
 						<p><a href="https://chat.openai.com/" target="_blank" rel="noopener"
 								class="software-highlight">ChatGPT</a> can run code to generate simple data analyses.
-							Great for quick
-							data exploration and simple visualizations.</p>
-					</div>
-					<div class="video-card">
-						<a href="https://www.youtube.com/watch?v=8TcWGk1DJVs" target="_blank" rel="noopener"><img
-								src="https://img.youtube.com/vi/8TcWGk1DJVs/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
-						<h4><a href="https://www.youtube.com/watch?v=8TcWGk1DJVs" target="_blank"
-								rel="noopener">WindSurf Coding
-								Agent</a> <span class="external-badge">EXTERNAL</span></h4>
-						<p><a href="https://www.windsurf.ai/" target="_blank" rel="noopener"
-								class="software-highlight">Windsurf</a> is an alternative to Cursor with a decent free
-							plan. Worth
-							exploring if you're not ready to pay for Cursor.</p>
+							Great for quick data exploration and simple visualizations.</p>
 					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=1vz6EkUhbOg" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/1vz6EkUhbOg/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=1vz6EkUhbOg" target="_blank" rel="noopener">Bricks
-								AI for
-								Spreadsheet &amp; Dashboard Automation</a> <span class="external-badge">EXTERNAL</span>
+								AI for Spreadsheet &amp; Dashboard Automation</a> <span class="external-badge">EXTERNAL</span>
 						</h4>
 						<p><a href="https://thebricks.com/" target="_blank" rel="noopener"
 								class="software-highlight">TheBricks.com</a> lets you use natural-language prompts to
-							manipulate
-							spreadsheets and build simple dashboards without writing formulas.</p>
+							manipulate spreadsheets and build simple dashboards without writing formulas.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- ——— WEEK 3 ——— -->
+		<!-- WEEK 3 -->
 		<div class="week-section">
 			<h3 class="week-title"><span class="week-number">3</span>GenAI for Text Processing &amp; Research</h3>
 			<div class="week-description">
 				<p><strong>Week Focus:</strong> Use AI for text processing and research tasks. Learn to classify text,
-					analyze
-					sentiment, summarize documents, and conduct research using AI tools.</p>
+					analyze sentiment, summarize documents, and conduct research using AI tools.</p>
 			</div>
 			<div class="main-demo">
 				<h4><span class="demo-badge">MAIN DEMO</span>
 					<a href="https://vimeo.com/1086807545" target="_blank" rel="noopener">Text Classification, Sentiment
-						Analysis
-						&amp; Summarization</a>
+						Analysis &amp; Summarization</a>
 				</h4>
-				<a href="https://vimeo.com/1086807545" target="_blank" rel="noopener"><img
-						src="https://vumbnail.com/1086807545.jpg" alt="Video thumbnail" class="video-thumb" /></a>
+				<div class="embed">
+					<iframe src="https://player.vimeo.com/video/1086807545?dnt=1" title="Text Classification, Sentiment Analysis &amp; Summarization"
+						allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+				</div>
 				<p>Using LLMs in a loop lets you automate lots of text-processing tasks, and spreadsheets are a great
-					way to do
-					this. Learn to integrate <a href="https://openrouter.ai/" target="_blank" rel="noopener"
+					way to do this. Learn to integrate <a href="https://openrouter.ai/" target="_blank" rel="noopener"
 						class="software-highlight">OpenRouter</a> with <a href="https://www.google.com/sheets/about/"
 						target="_blank" rel="noopener" class="software-highlight">Google Sheets</a> for scalable text
 					analysis.</p>
@@ -453,53 +475,46 @@
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=jPR1NEerdEk" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/jPR1NEerdEk/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=jPR1NEerdEk" target="_blank" rel="noopener">OpenAI
-								Deep
-								Research</a> <span class="external-badge">EXTERNAL</span></h4>
+								Deep Research</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>Let AI do the googling for you. <a href="https://chat.openai.com/" target="_blank"
 								rel="noopener" class="software-highlight">ChatGPT's</a> deep-research mode will search
-							the web repeatedly and compile
-							comprehensive reports on any topic.</p>
+							the web repeatedly and compile comprehensive reports on any topic.</p>
 					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=rJJPS-EvNfk" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/rJJPS-EvNfk/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=rJJPS-EvNfk" target="_blank" rel="noopener">Simple
-								Literature
-								Reviews with Elicit</a> <span class="external-badge">EXTERNAL</span></h4>
+								Literature Reviews with Elicit</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p><a href="https://elicit.com/" target="_blank" rel="noopener"
-								class="software-highlight">Elicit</a> lets
-							you search academic literature and get AI-powered summaries of research papers, making
-							literature reviews
-							much faster.</p>
+								class="software-highlight">Elicit</a> lets you search academic literature and get
+							AI-powered summaries of research papers, making literature reviews much faster.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- ——— WEEK 4 ——— -->
+		<!-- WEEK 4 -->
 		<div class="week-section">
 			<h3 class="week-title"><span class="week-number">4</span>Custom GPTs &amp; Chatbots</h3>
 			<div class="week-description">
 				<p><strong>Week Focus:</strong> Build custom AI assistants and chatbots. Learn to create specialized AI
-					tools for
-					your organization and deploy interactive chatbots for various use cases.</p>
+					tools for your organization and deploy interactive chatbots for various use cases.</p>
 			</div>
 			<div class="main-demo">
 				<h4><span class="demo-badge">MAIN DEMO</span>
 					<a href="https://vimeo.com/1092191232" target="_blank" rel="noopener">Creating &amp; Embedding
-						Interactive
-						Chatbots with Botpress</a>
+						Interactive Chatbots with Botpress</a>
 				</h4>
-				<a href="https://vimeo.com/1092191232" target="_blank" rel="noopener"><img
-						src="https://vumbnail.com/1092191232.jpg" alt="Video thumbnail" class="video-thumb" /></a>
+				<div class="embed">
+					<iframe src="https://player.vimeo.com/video/1092191232?dnt=1" title="Creating &amp; Embedding Interactive Chatbots with Botpress"
+						allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+				</div>
 				<p><a href="https://botpress.com/" target="_blank" rel="noopener"
-						class="software-highlight">Botpress</a> is one
-					of the most mature yet easiest-to-use platforms for building bots with modern LLMs. Build a simple
-					bot and
-					embed it on your website.</p>
+						class="software-highlight">Botpress</a> is one of the most mature yet easiest-to-use platforms
+					for building bots with modern LLMs. Build a simple bot and embed it on your website.</p>
 			</div>
 			<div class="other-demos">
 				<h4 class="section-label">Custom AI Assistant Solutions</h4>
@@ -507,147 +522,123 @@
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=0Q1AQAxpdGg" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/0Q1AQAxpdGg/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=0Q1AQAxpdGg" target="_blank" rel="noopener">Custom
-								GPTs</a>
-							<span class="external-badge">EXTERNAL</span>
-						</h4>
+								GPTs</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>Custom GPTs in <a href="https://chat.openai.com/" target="_blank" rel="noopener"
 								class="software-highlight">ChatGPT</a> let you build internal AI assistants with custom
-							knowledge bases
-							and instructions. Great for team-specific tasks.</p>
+							knowledge bases and instructions. Great for team-specific tasks.</p>
 					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=-Nl6hz2nYFA" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/-Nl6hz2nYFA/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=-Nl6hz2nYFA" target="_blank"
-								rel="noopener">NotebookLM</a>
-							<span class="external-badge">EXTERNAL</span>
-						</h4>
+								rel="noopener">NotebookLM</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>Upload documents to <a href="https://notebooklm.google/" target="_blank" rel="noopener"
 								class="software-highlight">Google's NotebookLM</a> and query them like a database. It
-							can even turn
-							documents into podcast-style audio.</p>
+							can even turn documents into podcast-style audio.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- ——— WEEK 5 ——— -->
+		<!-- WEEK 5 -->
 		<div class="week-section">
 			<h3 class="week-title"><span class="week-number">5</span>AI for Task Automation</h3>
 			<div class="week-description">
 				<p><strong>Week Focus:</strong> Traditional automation gets much more powerful with AI in the mix. Learn
-					to build
-					intelligent automation systems that can make decisions and handle complex tasks.</p>
+					to set up recurring AI tasks and build intelligent automation systems that can make decisions and
+					handle complex work.</p>
 			</div>
 			<div class="main-demo">
 				<h4><span class="demo-badge">MAIN DEMO</span>
-					<a href="https://vimeo.com/1092196500" target="_blank" rel="noopener">Intro to Workflow Automation
-						with
-						Make.com</a>
+					Scheduled Tasks with ChatGPT, Claude or Gemini
 				</h4>
-				<a href="https://vimeo.com/1092196500" target="_blank" rel="noopener"><img
-						src="https://vumbnail.com/1092196500.jpg" alt="Video thumbnail" class="video-thumb" /></a>
-				<p><a href="https://www.make.com/" target="_blank" rel="noopener"
-						class="software-highlight">Make.com</a> is a
-					popular workflow-automation platform with affordable pricing and a decent free plan. Takes some
-					getting used
-					to, but it's a valuable skill.</p>
+				<div class="embed-trio">
+					<div>
+						<div class="embed">
+							<iframe src="https://www.youtube-nocookie.com/embed/HUV6xZ57Loo" title="Scheduled tasks with ChatGPT"
+								allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+								allowfullscreen loading="lazy"></iframe>
+						</div>
+						<p class="trio-label"><a href="https://www.youtube.com/watch?v=HUV6xZ57Loo" target="_blank"
+								rel="noopener">ChatGPT</a></p>
+					</div>
+					<div>
+						<div class="embed">
+							<iframe src="https://www.youtube-nocookie.com/embed/9rkRHYe4vCk" title="Scheduled tasks with Claude"
+								allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+								allowfullscreen loading="lazy"></iframe>
+						</div>
+						<p class="trio-label"><a href="https://www.youtube.com/watch?v=9rkRHYe4vCk" target="_blank"
+								rel="noopener">Claude</a></p>
+					</div>
+					<div>
+						<div class="embed">
+							<iframe src="https://www.youtube-nocookie.com/embed/7rCOrfYvBmE" title="Scheduled tasks with Gemini"
+								allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+								allowfullscreen loading="lazy"></iframe>
+						</div>
+						<p class="trio-label"><a href="https://www.youtube.com/watch?v=7rCOrfYvBmE" target="_blank"
+								rel="noopener">Gemini</a></p>
+					</div>
+				</div>
+				<p>The simplest way into AI automation: ask your chatbot to run a prompt on a schedule. Daily news
+					briefings, weekly research digests and recurring reminders all run on their own. Pick whichever of
+					<a href="https://chatgpt.com/" target="_blank" rel="noopener" class="software-highlight">ChatGPT</a>,
+					<a href="https://claude.ai/" target="_blank" rel="noopener" class="software-highlight">Claude</a> or
+					<a href="https://gemini.google.com/" target="_blank" rel="noopener" class="software-highlight">Gemini</a>
+					you already use.
+				</p>
 			</div>
 			<div class="other-demos">
-				<h4 class="section-label">Other Automation Tools &amp; Use Cases</h4>
+				<h4 class="section-label">Going Further with Workflow Automation</h4>
 				<div class="video-grid">
+					<div class="video-card">
+						<div class="embed">
+							<iframe src="https://player.vimeo.com/video/1092196500?dnt=1" title="Intro to Workflow Automation with Make.com"
+								allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+						</div>
+						<h4><a href="https://vimeo.com/1092196500" target="_blank" rel="noopener">Intro to Workflow
+								Automation with Make.com</a></h4>
+						<p><a href="https://www.make.com/" target="_blank" rel="noopener"
+								class="software-highlight">Make.com</a> is a popular workflow-automation platform with
+							affordable pricing and a decent free plan. Takes some getting used to, but it's a valuable
+							skill when you need to connect several apps.</p>
+					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=GgBAMFvnkQI" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/GgBAMFvnkQI/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=GgBAMFvnkQI" target="_blank"
-								rel="noopener">Real-World
-								Make.com Automations</a> <span class="external-badge">EXTERNAL</span></h4>
+								rel="noopener">Real-World Make.com Automations</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>Explore real-world example use cases and see how different organizations use
 							<a href="https://www.make.com/" target="_blank" rel="noopener"
-								class="software-highlight">Make.com</a> for
-							their automation needs.
+								class="software-highlight">Make.com</a> for their automation needs.
 						</p>
-					</div>
-					<div class="video-card">
-						<a href="https://www.youtube.com/watch?v=bPtFxASiunA" target="_blank" rel="noopener"><img
-								src="https://img.youtube.com/vi/bPtFxASiunA/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
-						<h4><a href="https://www.youtube.com/watch?v=bPtFxASiunA" target="_blank" rel="noopener">Make AI
-								Agents</a>
-							<span class="external-badge">EXTERNAL</span>
-						</h4>
-						<p><a href="https://www.make.com/" target="_blank" rel="noopener"
-								class="software-highlight">Make.com</a>
-							now has an interface for building AI agents that choose their own tools, rather than
-							following a fixed
-							sequence.</p>
-					</div>
-					<div class="video-card">
-						<a href="https://www.youtube.com/watch?v=XQt47wxozL8" target="_blank" rel="noopener"><img
-								src="https://img.youtube.com/vi/XQt47wxozL8/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
-						<h4><a href="https://www.youtube.com/watch?v=XQt47wxozL8" target="_blank" rel="noopener">Build
-								Your Own AI
-								Team with Relay.app</a> <span class="external-badge">EXTERNAL</span></h4>
-						<p><a href="https://relay.app/" target="_blank" rel="noopener"
-								class="software-highlight">Relay.app</a>
-							lets anyone create AI agents that work like co-workers&mdash;proactive, reliable, and
-							getting better over
-							time with feedback. No code required.</p>
-					</div>
-					<div class="video-card">
-						<a href="https://www.youtube.com/watch?v=6x1PjxuDz00" target="_blank" rel="noopener"><img
-								src="https://img.youtube.com/vi/6x1PjxuDz00/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
-						<h4><a href="https://www.youtube.com/watch?v=6x1PjxuDz00" target="_blank"
-								rel="noopener">Automating Your
-								First Workflow with Relay.app</a> <span class="external-badge">EXTERNAL</span></h4>
-						<p>A step-by-step walkthrough of building your first automated workflow in
-							<a href="https://relay.app/" target="_blank" rel="noopener"
-								class="software-highlight">Relay.app</a>,
-							including triggers, AI steps, conditional paths, and human-in-the-loop approvals.
-						</p>
-					</div>
-					<div class="video-card">
-						<a href="https://www.youtube.com/watch?v=YJtmFpth_nE" target="_blank" rel="noopener"><img
-								src="https://img.youtube.com/vi/YJtmFpth_nE/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
-						<h4><a href="https://www.youtube.com/watch?v=YJtmFpth_nE" target="_blank"
-								rel="noopener">Shortwave: AI
-								Inbox Assistant</a> <span class="external-badge">EXTERNAL</span></h4>
-						<p><a href="https://www.shortwave.com/" target="_blank" rel="noopener"
-								class="software-highlight">Shortwave</a> brings an AI copilot straight to Gmail and
-							Outlook. Search your
-							inbox intelligently, draft replies, summarise threads and more.</p>
 					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=3G2lAyjkasw" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/3G2lAyjkasw/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=3G2lAyjkasw" target="_blank"
-								rel="noopener">Serif.ai: AI
-								Email Drafts</a> <span class="external-badge">EXTERNAL</span></h4>
+								rel="noopener">Serif.ai: AI Email Drafts</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p><a href="https://www.serif.ai/" target="_blank" rel="noopener"
-								class="software-highlight">Serif.ai</a>
-							listens to short voice notes and wakes you up to an organised inbox: replies drafted,
-							follow-ups sent,
-							meetings scheduled.</p>
+								class="software-highlight">Serif.ai</a> listens to short voice notes and wakes you up to
+							an organised inbox: replies drafted, follow-ups sent, meetings scheduled.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- ——— WEEK 6 ——— -->
+		<!-- WEEK 6 -->
 		<div class="week-section">
 			<h3 class="week-title"><span class="week-number">6</span>AI for Graphics</h3>
 			<div class="week-description">
-				<p><strong>Week Focus:</strong> Use AI to create and edit visual content. Learn to generate images with
-					Canva AI,
-					create SVG graphics with LLMs, and bring those graphics into PowerPoint for further editing.</p>
+				<p><strong>Week Focus:</strong> Use AI to create and edit visual content. Learn to generate and edit
+					images with Canva AI, create SVG graphics with LLMs, and bring those graphics into PowerPoint for
+					further editing.</p>
 			</div>
 			<div class="other-demos">
 				<h4 class="section-label">Tools &amp; Techniques</h4>
@@ -655,37 +646,42 @@
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=OfgU9f1KHAE" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/OfgU9f1KHAE/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=OfgU9f1KHAE" target="_blank" rel="noopener">Canva
-								AI for Image
-								Generation</a> <span class="external-badge">EXTERNAL</span></h4>
+								AI for Image Generation</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p><a href="https://www.canva.com/" target="_blank" rel="noopener"
-								class="software-highlight">Canva</a> now
-							has powerful AI image generation built in. Create professional graphics, social media
-							visuals, and more
-							with simple text prompts.</p>
+								class="software-highlight">Canva</a> now has powerful AI image generation built in.
+							Create professional graphics, social media visuals, and more with simple text prompts.</p>
+					</div>
+					<div class="video-card">
+						<a href="https://www.youtube.com/watch?v=22sF_TesW4k" target="_blank" rel="noopener"><img
+								src="https://img.youtube.com/vi/22sF_TesW4k/mqdefault.jpg" alt="Video thumbnail"
+								class="video-thumb" loading="lazy" /></a>
+						<h4><a href="https://www.youtube.com/watch?v=22sF_TesW4k" target="_blank" rel="noopener">Canva
+								Magic Layers for Editing Photos</a> <span class="external-badge">EXTERNAL</span></h4>
+						<p><a href="https://www.canva.com/" target="_blank" rel="noopener"
+								class="software-highlight">Canva's</a> Magic Layers splits a flat image into separate,
+							editable layers, so you can move objects around, tweak photos and add text boxes after the
+							fact.</p>
 					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=kBCXqQCsm7A" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/kBCXqQCsm7A/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=kBCXqQCsm7A" target="_blank"
-								rel="noopener">Creating SVG
-								Graphics with AI</a> <span class="external-badge">EXTERNAL</span></h4>
+								rel="noopener">Creating SVG Graphics with AI</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>LLMs like Claude can generate professional SVG diagrams and graphics from simple
-							descriptions. SVGs scale
-							to any size without losing quality&mdash;perfect for presentations and marketing.</p>
+							descriptions. SVGs scale to any size without losing quality, which makes them perfect for
+							presentations and marketing.</p>
 					</div>
 					<div class="video-card">
 						<a href="https://www.youtube.com/watch?v=gSn11NJlfjg" target="_blank" rel="noopener"><img
 								src="https://img.youtube.com/vi/gSn11NJlfjg/mqdefault.jpg" alt="Video thumbnail"
-								class="video-thumb" /></a>
+								class="video-thumb" loading="lazy" /></a>
 						<h4><a href="https://www.youtube.com/watch?v=gSn11NJlfjg" target="_blank"
-								rel="noopener">Converting SVG to
-								Editable PowerPoint Shapes</a> <span class="external-badge">EXTERNAL</span></h4>
+								rel="noopener">Converting SVG to Editable PowerPoint Shapes</a> <span class="external-badge">EXTERNAL</span></h4>
 						<p>Once you have an SVG from AI, you can import it into PowerPoint and convert it to editable
-							shapes.
-							Customize colors, text, and layout without needing Illustrator.</p>
+							shapes. Customize colors, text, and layout without needing Illustrator.</p>
 					</div>
 				</div>
 			</div>
